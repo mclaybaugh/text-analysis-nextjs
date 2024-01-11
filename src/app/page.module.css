@@ -1,7 +1,23 @@
-.verse {
-  display: flex;
-}
 .text {
   font-size: 25px;
   direction: rtl;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.verse {
+  display: flex;
+  padding-bottom: 1rem;
+}
+.word {
+  transition: .2s all;
+  cursor: pointer;
+  border-radius: 2px;
+  padding: 5px;
+}
+.word:hover {
+  background-color: rgb(241, 153, 81);
+}
+.verseNum {
+  font-size: 14px;
 }

@@ -3,23 +3,41 @@ import styles from './page.module.css'
 import { data } from './data';
 
 export default function Home() {
-  const lines = data.inthebeginning.map((words) => {
-    const wordEls = words.map(word => {
+  const chapters = data.map((chapter, i) => {
+    const verses = chapter.map((words, i) => {
+      const wordEls = words.map(word => {
+        return (
+          <div className={styles.word}>
+            {word}
+          </div>
+        )
+      })
+      const verseNum = i + 1;
       return (
-        <div>
-          {word}
+        <div className={styles.verse}>
+          <div className={styles.verseNum}>{verseNum}</div>
+          {wordEls}
         </div>
-      )
+      );
     })
+    const chapterNum = i + 1;
     return (
-      <div className={styles.verse}>
-        {wordEls}
+      <div className={styles.chapter}>
+        <h3>{chapterNum}</h3>
+        {verses}
       </div>
-    );
+    )
   })
+  
   return (
     <div className={styles.text}>
-      {lines}
+      <div>
+        <h2>Details</h2>
+      </div>
+      <div>
+        <h2>Text</h2>
+        {chapters}
+      </div>
     </div>
   )
 }
